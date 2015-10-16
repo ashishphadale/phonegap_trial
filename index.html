@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html ng-app="userInformation">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular JS - User Information</title>
+	<link rel="stylesheet" href="styles/stylesheet.css">
+		<script src="scripts/angular.js"></script>
+
+</head>
+<body>
+	<div class="tableContainer" ng-controller="detailsController">
+		<div>Search: <input type="text" placeholder="Search User" ng-model="userSearch"></div>
+		<ul class="head_container">
+			<li class="">No.</li>
+			<li class="">Name</li>
+			<li class="">Designation</li>
+			<li class="">Action</li>
+		</ul>
+		
+		<ul class="container" ng-repeat="information in info | filter:userSearch">
+			<span ng-hide="editInfo">
+				<li class="">{{information.number}}</li>
+				<li class="">{{information.name}}</li>
+				<li class="">{{information.designation}}</li>
+				<li class=""><span class="uline" ng-click="editInfo = true">Edit</span> <span class="uline" ng-click="delete(information)">Delete</span></li>
+			</span>
+			<form ng-show="editInfo" ng-submit="editInfo = false">
+				<li class=""><input class="input_num" type="text" placeholder="number" ng-model="information.number" required autofocus></li>
+				<li class=""><input class="input_name" type="text" placeholder="name" ng-model="information.name" required></li>
+				<li class=""><input class="input_desi" type="text" placeholder="designation" ng-model="information.designation" required></li>
+				<li class=""><button type="submit" ng-click="visible = false">Save</button></li>
+			</form>
+		</ul>
+		<ul class="container">
+			<form ng-show="visible" ng-submit="addUserInfo()">
+				<li class=""><input class="input_num" type="text" ng-model="serialnumber" ng-required></li>
+				<li class=""><input class="input_name" type="text" ng-model="username" ng-required></li>
+				<li class=""><input class="input_desi" type="text" ng-model="designation" ng-required></li>
+				<li class=""><button type="submit" ng-click="visible = false">Save</button></li>
+			</form>
+		</ul>
+		<div id="push"></div>
+		<ul class="add_container">
+			<button ng-click="visible = true">Add User</button>
+		</ul>
+				
+	<div>
+	<script src="scripts/angularCode.js"></script>
+
+</body>
+</html>

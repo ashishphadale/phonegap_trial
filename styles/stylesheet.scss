@@ -1,0 +1,31 @@
+.tableContainer{width: 500px;}
+.floatLeft{float: left;}
+.container{width: 500px; float: left;}
+ul{padding: 0;margin: 0;}
+
+
+@mixin container{
+float: left; list-style:none; margin-left: 10px; border-right: 1px #000 solid; padding-right: 10px;}
+
+
+ul.head_container{@include container; background-color: #ccc; float: left; width: 100%;}
+ul.head_container li{@include container;background-color: #ccc; float: left;}
+ul.container{@include container; width: 100%;}
+ul.container li{@include container; float: left;}
+ul.input_container{@include container; width: 100%;}
+ul.input_container li{@include container; float: left;}
+ul.add_container{@include container; background-color: #ccc; float: left; width: 100%;}
+ul.add_container li{@include container; float: left; border:none;}
+
+ul.head_container li:nth-child(1), ul.container li:nth-child(1), ul.inpute_container li:nth-child(1){width:17px; margin-left: 5px;}
+ul.head_container li:nth-child(2), ul.container li:nth-child(2), ul.inpute_container li:nth-child(2), .input_name{width:140px;}
+ul.head_container li:nth-child(3), ul.container li:nth-child(3), ul.inpute_container li:nth-child(3), .input_email{width:100px;}
+ul.head_container li:nth-child(4), ul.container li:nth-child(4), ul.inpute_container li:nth-child(4), .input_desi{width:80px;}
+
+ul.input_container li:nth-child(1){margin-left: 0px;}
+ul.input_container li:nth-child(2){margin-left: 7px;}
+ul.input_container li:nth-child(3){margin-left: 6px;}
+ul.input_container li:nth-child(4){margin-left: 6px;}
+.input_num{width: 17px;}
+button{cursor: pointer;}
+.uline{text-decoration: underline; cursor: pointer;}
